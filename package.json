@@ -34,9 +34,7 @@
         "extensions": [
           ".nc",
           ".cnc",
-          ".tap",
-          ".gcode",
-          ".knc"
+          ".gcode"
         ],
         "configuration": "./language-configuration.json"
       }
