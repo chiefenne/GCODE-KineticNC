@@ -8,9 +8,56 @@ export function activate(context: vscode.ExtensionContext) {
     { language: "gcode-kineticnc" },
     {
       provideHover(document, position) {
+        const lineText = document.lineAt(position.line).text;
+        const charUnderCursor = lineText[position.character];
+
+        if (charUnderCursor === "%") {
+          const doc = hoverDocs["%"];
+          if (!doc) {
+            return undefined;
+          }
+
+          const markdown = new vscode.MarkdownString();
+          markdown.appendMarkdown(`**${doc.title}**`);
+
+          if (doc.syntax) {
+            markdown.appendMarkdown(`\n\n**Syntax**\n`);
+            markdown.appendCodeblock(doc.syntax, "plaintext");
+          }
+
+          if (doc.example) {
+            const examples = Array.isArray(doc.example)
+              ? doc.example
+              : [doc.example];
+
+            markdown.appendMarkdown(
+              `\n\n**Example${examples.length > 1 ? "s" : ""}**\n`,
+            );
+
+            for (const ex of examples) {
+              markdown.appendCodeblock(ex, "plaintext");
+            }
+          }
+
+          markdown.appendMarkdown(`\n${doc.body}`);
+
+          if (doc.notes) {
+            markdown.appendMarkdown(`\n\n**Notes**\n${doc.notes}`);
+          }
+
+          const percentRange = new vscode.Range(
+            position.line,
+            position.character,
+            position.line,
+            position.character + 1,
+          );
+
+          return new vscode.Hover(markdown, percentRange);
+        }
+
         const range = document.getWordRangeAtPosition(
           position,
-          /#[A-Za-z0-9]+|[A-Za-z][A-Za-z0-9]*/
+          /#[A-Za-z0-9]+|[A-Za-z][A-Za-z0-9]*/,
         );
         if (!range) {
           return undefined;
@@ -33,8 +80,17 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         if (doc.example) {
-          markdown.appendMarkdown(`\n\n**Example**\n`);
-          markdown.appendCodeblock(doc.example, "plaintext");
+          const examples = Array.isArray(doc.example)
+            ? doc.example
+            : [doc.example];
+
+          markdown.appendMarkdown(
+            `\n\n**Example${examples.length > 1 ? "s" : ""}**\n`,
+          );
+
+          for (const ex of examples) {
+            markdown.appendCodeblock(ex, "plaintext");
+          }
         }
 
         markdown.appendMarkdown(`\n${doc.body}`);
@@ -44,8 +100,8 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         return new vscode.Hover(markdown, range);
-      }
-    }
+      },
+    },
   );
 
   context.subscriptions.push(hoverProvider);
