@@ -1,6 +1,6 @@
 # GCODE-KineticNC
 
-VS Code language support for KinetiC-NC G-code.
+VS Code language support for the [KinetiC-NC](https://www.cnc-step.de/cnc-software/kinetic-nc-netzwerk-steuerungssoftware/) software specific CNC G-code. KinetiC-NC is a CNC controller software from the company [CNC-Step](<https://www.cnc-step.de>).
 
 ## Features
 
