@@ -10,10 +10,6 @@ VS Code language support for the [KinetiC-NC](https://www.cnc-step.de/cnc-softwa
 
 ![KinetiC-NC syntax highlighting in VS Code](assets/kineticnc-highlighting.png)
 
-Optional: add an animated preview to show hover/tooltips or scrolling:
-
-![KinetiC-NC syntax highlighting demo](assets/kineticnc-highlighting.gif)
-
 ## Supported file extensions
 
 - `.nc`
