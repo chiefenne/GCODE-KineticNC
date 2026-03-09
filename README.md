@@ -4,15 +4,9 @@ VS Code language support for KinetiC-NC G-code.
 
 ## Features
 
-- Syntax highlighting
-- File associations for KinetiC-NC programs
+- Syntax highlighting of G-code and KinetiC-NC specific commands
 
 ## VS Code Highlighting Preview
-
-GitHub does not use VS Code extensions for Markdown code block highlighting.
-To show the real KinetiC-NC highlighting, include a screenshot (or GIF) taken in VS Code.
-
-Add an image to `assets/` (for example `assets/kineticnc-highlighting.png`) and reference it here:
 
 ![KinetiC-NC syntax highlighting in VS Code](assets/kineticnc-highlighting.png)
 
