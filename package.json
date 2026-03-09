@@ -1,0 +1,71 @@
+{
+  "name": "gcode-kineticnc",
+  "displayName": "GCODE-KineticNC",
+  "description": "Syntax highlighting and language support for KinetiC-NC G-code.",
+  "version": "0.1.0",
+  "publisher": "chiefenne",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "cnc",
+    "gcode",
+    "g-code",
+    "nc",
+    "kineticnc",
+    "kinetic-nc"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chiefenne/GCODE-KineticNC.git"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "gcode-kineticnc",
+        "aliases": [
+          "GCODE-KineticNC",
+          "KinetiC-NC"
+        ],
+        "extensions": [
+          ".nc",
+          ".cnc",
+          ".tap",
+          ".gcode",
+          ".knc"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "gcode-kineticnc",
+        "scopeName": "source.gcode-kineticnc",
+        "path": "./syntaxes/gcode-kineticnc.tmLanguage.json"
+      }
+    ],
+    "configurationDefaults": {
+      "[gcode-kineticnc]": {
+        "editor.colorDecorators": false
+      }
+    }
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:gcode-kineticnc"
+  ],
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.0.0"
+  }
+}

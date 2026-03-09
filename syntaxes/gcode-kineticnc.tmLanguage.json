@@ -1,0 +1,201 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "GCODE-KineticNC",
+  "patterns": [
+    {
+      "include": "#preamble"
+    },
+    {
+      "include": "#variables"
+    },
+    {
+      "include": "#kineticnc"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    }
+  ],
+  "repository": {
+    "preamble": {
+      "patterns": [
+        {
+          "comment": "Everything before the first % line is treated as header/comment",
+          "begin": "\\A",
+          "end": "^\\s*%\\s*$",
+          "contentName": "comment.block.preamble.gcode-kineticnc",
+          "patterns": []
+        },
+        {
+          "comment": "Program start marker",
+          "name": "keyword.control.program-start.gcode-kineticnc",
+          "match": "^\\s*%\\s*$"
+        }
+     ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "comment": "Indirect variable #[expr] e.g. #[#119+2]",
+          "name": "variable.other.indirect.gcode-kineticnc",
+          "match": "#\\[[^\\]]+\\]"
+        },
+        {
+          "comment": "Input pin #Ixx e.g. #I13",
+          "name": "variable.other.input.gcode-kineticnc",
+          "match": "#[iI][0-9]+"
+        },
+        {
+          "comment": "Output pin #Oxx e.g. #O8",
+          "name": "variable.other.output.gcode-kineticnc",
+          "match": "#[oO][0-9]+"
+        },
+        {
+          "comment": "System/user variable #nnn e.g. #100, #952",
+          "name": "variable.other.numeric.gcode-kineticnc",
+          "match": "#[0-9]+"
+        },
+        {
+          "comment": "Bare # prefix (catch-all so # never leaks)",
+          "name": "variable.other.gcode-kineticnc",
+          "match": "#"
+        }
+      ]
+    },
+    "kineticnc": {
+      "patterns": [
+        {
+          "comment": "PRINT statement with ; concatenation",
+          "begin": "\\b(?i)(PRINT)\\b",
+          "end": "$",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control.gcode-kineticnc"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#variables"
+            },
+            {
+              "name": "string.quoted.double.gcode-kineticnc",
+              "begin": "\"",
+              "end": "\""
+            },
+            {
+              "comment": "Concatenation separator",
+              "name": "punctuation.separator.gcode-kineticnc",
+              "match": ";"
+            }
+          ]
+        },
+        {
+          "comment": "SKIP label reference",
+          "match": "\\b(?i)(SKIP)\\s+(Q[0-9]+)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.gcode-kineticnc"
+            },
+            "2": {
+              "name": "entity.name.label.gcode-kineticnc"
+            }
+          }
+        },
+        {
+          "comment": "KineticNC keywords",
+          "name": "keyword.control.gcode-kineticnc",
+          "match": "\\b(?i)(IF|THEN|ELSE|ENDIF|REPEAT|NEXT|RETURN|SKIP|ASKBOOL|ASKFLT|ASKINT|ROUND|ABS|SIN|COS|TAN|ASIN|ACOS|ATAN|SQRT|MOD|AND|OR|NOT|UNTIL)\\b"
+        },
+        {
+          "comment": "KinetiC-NC label definition Q0001:",
+          "match": "^(\\s*)(Q[0-9]+)(\\s*:)",
+          "captures": {
+            "2": {
+              "name": "entity.name.label.gcode-kineticnc meta.definition.label.gcode-kineticnc"
+            },
+            "3": {
+              "name": "punctuation.definition.label.gcode-kineticnc"
+            }
+          }
+        },
+        {
+          "comment": "String literals in double quotes",
+          "name": "string.quoted.double.gcode-kineticnc",
+          "begin": "\"",
+          "end": "\""
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "constant.numeric.line-number.gcode-kineticnc",
+          "match": "[nN][ \\t]*[0-9\\.]+"
+        },
+        {
+          "name": "support.function.gcode.gcode-kineticnc",
+          "match": "[gG][ \\t]*[0-9][0-9\\.]*"
+        },
+        {
+          "name": "variable.parameter.axis.gcode-kineticnc",
+          "match": "(?i)[rRzZ][ \\t]*[\\-\\+]?[0-9\\.]+"
+        },
+        {
+          "name": "variable.parameter.axis.gcode-kineticnc",
+          "match": "(?i)[XAUI][ \\t]*[\\-\\+]?[0-9\\.]+"
+        },
+        {
+          "name": "variable.parameter.axis.gcode-kineticnc",
+          "match": "(?i)[YBVJ][ \\t]*[\\-\\+]?[0-9\\.]+"
+        },
+        {
+          "name": "support.function.mcode.gcode-kineticnc",
+          "match": "[mM][ \\t]*[0-9][0-9\\.]*"
+        },
+        {
+          "name": "variable.parameter.machine.gcode-kineticnc",
+          "match": "[dDfFhHsStT][ \\t]*[0-9][0-9\\.]*"
+        },
+        {
+          "name": "variable.parameter.misc.gcode-kineticnc",
+          "match": "[pPqQeE][ \\t]*[0-9][0-9\\.]*"
+        },
+        {
+          "name": "variable.parameter.misc.gcode-kineticnc",
+          "match": "[cCwWkKlL][ \\t]*[\\-\\+]?[0-9\\.]+"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "comment.block.gcode-kineticnc",
+          "comment": "Parenthesized comments (...)",
+          "begin": "\\(",
+          "end": "\\)",
+          "patterns": [
+            {
+              "name": "constant.character.escape.gcode-kineticnc",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "comment.line.semicolon.gcode-kineticnc",
+          "comment": "Semicolon comments ; to end of line",
+          "begin": ";",
+          "end": "$",
+          "patterns": [
+            {
+              "name": "constant.character.escape.gcode-kineticnc",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scopeName": "source.gcode-kineticnc"
+}
