@@ -5,7 +5,7 @@ A VS Code extension providing language support for [KinetiC-NC](https://www.cnc-
 ## Features
 
 - Syntax highlighting for G-code and KinetiC-NC-specific commands
-- Hover information for G-code and M-code commands
+- Hover information for G-code commands, M-code commands, control flow keywords (IF, THEN, ...), variables, and more
 
 ## Preview
 <table align="center">
