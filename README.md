@@ -7,20 +7,38 @@ VS Code language support for the [KinetiC-NC](https://www.cnc-step.de/cnc-softwa
 - Syntax highlighting of G-code and KinetiC-NC specific commands
 
 ## VS Code Highlighting Preview
-<p align="center">
-    <img src="assets/kineticnc-highlighting_new_colors.png" alt="KinetiC-NC syntax highlighting in VS Code" width="600">
-</p>
-<p align="center"><em>KinetiC-NC syntax highlighting in VS Code</em></p>
+<table align="center">
+  <tr>
+    <td>
+      <img src="assets/kineticnc-highlighting_new_colors.png" alt="KinetiC-NC syntax highlighting in VS Code" width="600">
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><em>KinetiC-NC syntax highlighting in VS Code</em></td>
+  </tr>
+</table>
 
-<p align="center">
-    <img src="assets/kineticnc-hover_01.png" alt="KinetiC-NC hover information 1" width="600">
-</p>
-<p align="center"><em>Hover example 1</em></p>
+<table align="center">
+  <tr>
+    <td>
+      <img src="assets/kineticnc-hover_01.png" alt="KinetiC-NC hover information 1" width="600">
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><em>Hover example 1</em></td>
+  </tr>
+</table>
 
-<p align="center">
-    <img src="assets/kineticnc-hover_02.png" alt="KinetiC-NC hover information 2" width="600">
-</p>
-<p align="center"><em>Hover example 2</em></p>
+<table align="center">
+  <tr>
+    <td>
+      <img src="assets/kineticnc-hover_02.png" alt="KinetiC-NC hover information 2" width="600">
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><em>Hover example 2</em></td>
+  </tr>
+</table>
 
 ## Supported file extensions
 
