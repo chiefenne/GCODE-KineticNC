@@ -7,17 +7,17 @@ VS Code language support for the [KinetiC-NC](https://www.cnc-step.de/cnc-softwa
 - Syntax highlighting of G-code and KinetiC-NC specific commands
 
 ## VS Code Highlighting Preview
-![KinetiC-NC syntax highlighting in VS Code](assets/kineticnc-highlighting_new_colors.png)
+<img src="assets/kineticnc-highlighting_new_colors.png" alt="KinetiC-NC syntax highlighting in VS Code" width="600">
 
-*KinetiC-NC syntax highlighting in VS Code*
+<p align="center"><em>KinetiC-NC syntax highlighting in VS Code</em></p>
 
-![KinetiC-NC hover information 1](assets/kineticnc_hover_01.png)
+<img src="assets/kineticnc-hover_01.png" alt="KinetiC-NC hover information 1" width="600">
 
-*Hover information example 1*
+<p align="center"><em>Hover information example 1</em></p>
 
-![KinetiC-NC hover information 2](assets/kineticnc_hover_02.png)
+<img src="assets/kineticnc-hover_02.png" alt="KinetiC-NC hover information 2" width="600">
 
-*Hover information example 2*
+<p align="center"><em>Hover information example 2</em></p>
 
 ## Supported file extensions
 
