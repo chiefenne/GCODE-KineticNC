@@ -42,30 +42,82 @@ If you want additional styling beyond the default syntax grammar, add this to yo
 
 ```json
 "editor.tokenColorCustomizations": {
-	"textMateRules": [
-		{
-			"scope": [
-				"comment.block.gcode-kineticnc",
-				"comment.line.semicolon.gcode-kineticnc",
-				"comment.block.preamble.gcode-kineticnc"
-			],
-			"settings": {
-				"fontStyle": "italic"
-			}
-		},
-		{
-			"scope": "keyword.control.gcode-kineticnc",
-			"settings": {
-				"fontStyle": "bold"
-			}
-		},
-		{
-			"scope": "entity.name.label.gcode-kineticnc",
-			"settings": {
-				"foreground": "#e91b1b",
-				"fontStyle": "bold"
-			}
-		}
-	]
+  "textMateRules": [
+    {
+      "scope": [
+        "comment.block.gcode-kineticnc",
+        "comment.line.semicolon.gcode-kineticnc",
+        "comment.block.preamble.gcode-kineticnc"
+      ],
+      "settings": {
+        "foreground": "#7A7A7A",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "variable.parameter.axis.gcode-kineticnc",
+      "settings": {
+        "foreground": "#0F7C8C"
+      }
+    },
+    {
+      "scope": "keyword.control.gcode-kineticnc",
+      "settings": {
+        "foreground": "#0F8A6A",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": "variable.parameter.machine.gcode-kineticnc",
+      "settings": {
+        "foreground": "#C62828",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": "variable.other.numeric.gcode-kineticnc",
+      "settings": {
+        "foreground": "#0077A6"
+      }
+    },
+    {
+      "scope": "variable.other.input.gcode-kineticnc",
+      "settings": {
+        "foreground": "#6B7D1F"
+      }
+    },
+    {
+      "scope": "variable.other.output.gcode-kineticnc",
+      "settings": {
+        "foreground": "#6B7D1F"
+      }
+    },
+    {
+      "scope": "support.function.gcode.gcode-kineticnc",
+      "settings": {
+        "foreground": "#1E4FBF",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": "support.function.mcode.gcode-kineticnc",
+      "settings": {
+        "foreground": "#8E2AA8",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": "constant.numeric.line-number.gcode-kineticnc",
+      "settings": {
+        "foreground": "#A8A8A8"
+      }
+    },
+    {
+      "scope": "entity.name.label.gcode-kineticnc",
+      "settings": {
+        "foreground": "#B42318"
+      }
+    }
+  ]
 }
 ```
