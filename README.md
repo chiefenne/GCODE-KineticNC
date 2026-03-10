@@ -1,12 +1,13 @@
 # GCODE-KineticNC
 
-VS Code language support for the [KinetiC-NC](https://www.cnc-step.de/cnc-software/kinetic-nc-netzwerk-steuerungssoftware/) software specific CNC G-code. KinetiC-NC is a CNC controller software from the company [CNC-Step](<https://www.cnc-step.de>).
+A VS Code extension providing language support for [KinetiC-NC](https://www.cnc-step.de/cnc-software/kinetic-nc-netzwerk-steuerungssoftware/)-specific CNC G-code. KinetiC-NC is CNC control software by [CNC-Step](https://www.cnc-step.de).
 
 ## Features
 
-- Syntax highlighting of G-code and KinetiC-NC specific commands
+- Syntax highlighting for G-code and KinetiC-NC-specific commands
+- Hover information for G-code and M-code commands
 
-## VS Code Highlighting Preview
+## Preview
 <table align="center">
   <tr>
     <td>
@@ -46,9 +47,9 @@ VS Code language support for the [KinetiC-NC](https://www.cnc-step.de/cnc-softwa
 - `.cnc`
 - `.gcode`
 
-## Install from VSIX
+## Installation
 
-Download the packaged `.vsix` file. You can install it directly in VS Code.
+Download the latest `.vsix` file from the [Releases](https://github.com/chiefenne/GCODE-KineticNC/releases) page and install it in VS Code.
 
 ### Option 1: VS Code UI
 
@@ -66,9 +67,9 @@ code --install-extension path/to/gcode-kineticnc-<version>.vsix
 
 To upgrade, run the same command again with the newer `.vsix` file.
 
-## Optional user token color customizations
+## Custom Token Colors (Optional)
 
-If you want additional styling beyond the default syntax grammar, add this to your VS Code user settings (`settings.json`):
+To customize the highlighting colors beyond what your current theme provides, add the following to your VS Code user settings (`settings.json`):
 
 ```json
 "editor.tokenColorCustomizations": {
