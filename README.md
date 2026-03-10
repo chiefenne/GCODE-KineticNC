@@ -8,7 +8,7 @@ VS Code language support for the [KinetiC-NC](https://www.cnc-step.de/cnc-softwa
 
 ## VS Code Highlighting Preview
 
-![KinetiC-NC syntax highlighting in VS Code](assets/kineticnc-highlighting_new_colors.png){width=600px}
+<img src="assets/kineticnc-highlighting_new_colors.png" alt="KinetiC-NC syntax highlighting in VS Code" width="600">
 
 ## Supported file extensions
 
